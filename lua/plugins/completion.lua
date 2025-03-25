@@ -7,9 +7,8 @@ return {
 
     opts = {
       keymap = { preset = 'default' },
-      cmdline = {
-        enabled = false
-      },
+      cmdline = { enabled = false },
+      signature = { enabled = true },
       appearance = {
         nerd_font_variant = 'mono'
       },
