@@ -33,6 +33,10 @@ vim.keymap.set("v", "<Space>x", ":lua<CR>")                 -- execute selected
 vim.keymap.set("n", "<M-j>", "<cmd>cnext<CR>")              -- QuickFix next
 vim.keymap.set("n", "<M-k>", "<cmd>cprev<CR>")              -- QuickFix prev
 
+vim.keymap.set("n", "<Space>dd", "<cmd>lua vim.diagnostic.open_float()<CR>")
+vim.keymap.set("n", "<Space>dn", "<cmd>lua vim.diagnostic.goto_next()<CR>")
+vim.keymap.set("n", "<Space>dp", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
+
 -- Highlight when yanking (copying) text
 vim.api.nvim_create_autocmd("TextYankPost", {
   desc = "Highlight when yanking (copying) text",
