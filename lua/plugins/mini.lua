@@ -5,6 +5,7 @@ return {
     config = function()
       require("mini.icons").setup()
       require("mini.pairs").setup()
+      require("mini.surround").setup()
       require("mini.files").setup()
     end,
 
