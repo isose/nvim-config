@@ -1,6 +1,7 @@
 return {
   "mrjones2014/smart-splits.nvim",
-  init = function()
+  event = { "WinNew " },
+  config = function()
     -- resizing splits
     vim.keymap.set("n", "<M-h>", require("smart-splits").resize_left)
     vim.keymap.set("n", "<M-j>", require("smart-splits").resize_down)

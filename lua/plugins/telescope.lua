@@ -6,6 +6,12 @@ return {
       "nvim-lua/plenary.nvim",
       { "nvim-telescope/telescope-fzf-native.nvim", build = "make" }
     },
+    keys = {
+      { "<Leader>ff", function() require("telescope.builtin").find_files() end },
+      { "<Leader>fb", function() require("telescope.builtin").buffers() end },
+      { "<Leader>fh", function() require("telescope.builtin").help_tags() end },
+      { "<Leader>en", function() require("telescope.builtin").find_files({ cwd = vim.fn.stdpath("config") }) end, desc = "find files in config" },
+    },
     config = function()
       require("telescope").setup({
         pickers = {
@@ -17,19 +23,7 @@ return {
           fzf = {}
         }
       })
-
       require("telescope").load_extension("fzf")
-
-      local builtin = require("telescope.builtin")
-
-      vim.keymap.set("n", "<Leader>ff", builtin.find_files)
-      vim.keymap.set("n", "<Leader>fb", builtin.buffers)
-      vim.keymap.set("n", "<Leader>fh", builtin.help_tags)
-      -- find files in config
-      vim.keymap.set("n", "<Leader>en", function()
-        builtin.find_files({ cwd = vim.fn.stdpath("config") })
-      end)
-
       require("config.telescope.multigrep").setup()
     end,
   },

@@ -1,12 +1,14 @@
 return {
   {
     "williamboman/mason.nvim",
+    cmd = { "Mason" },
     config = function()
       require("mason").setup()
     end,
   },
   {
     "williamboman/mason-lspconfig.nvim",
+    event = { "BufReadPost", "BufNewFile" },
     dependencies = { "mason.nvim" },
     config = function()
       require("mason-lspconfig").setup()
