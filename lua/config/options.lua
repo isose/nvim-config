@@ -33,7 +33,11 @@ vim.keymap.set("v", "<Space>x", ":lua<CR>")                 -- execute selected
 vim.keymap.set("n", "<M-j>", "<cmd>cnext<CR>")              -- QuickFix next
 vim.keymap.set("n", "<M-k>", "<cmd>cprev<CR>")              -- QuickFix prev
 
-vim.keymap.set("n", "<Space>dd", "<cmd>lua vim.diagnostic.open_float()<CR>")
+vim.keymap.set('n', '<Space>dd', function()
+  local new_config = not vim.diagnostic.config().virtual_lines
+  vim.diagnostic.config({ virtual_lines = new_config })
+end, { desc = 'Toggle diagnostic virtual_lines' })
+
 vim.keymap.set("n", "<Space>dn", "<cmd>lua vim.diagnostic.goto_next()<CR>")
 vim.keymap.set("n", "<Space>dp", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
 
