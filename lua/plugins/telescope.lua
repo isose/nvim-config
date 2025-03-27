@@ -10,6 +10,7 @@ return {
       { "<Leader>ff", function() require("telescope.builtin").find_files() end },
       { "<Leader>fb", function() require("telescope.builtin").buffers() end },
       { "<Leader>fh", function() require("telescope.builtin").help_tags() end },
+      { "<Leader>fg", function() require("config.telescope.multigrep").live_multigrep() end },
       { "<Leader>en", function() require("telescope.builtin").find_files({ cwd = vim.fn.stdpath("config") }) end, desc = "find files in config" },
     },
     config = function()
@@ -24,7 +25,6 @@ return {
         }
       })
       require("telescope").load_extension("fzf")
-      require("config.telescope.multigrep").setup()
     end,
   },
 }
