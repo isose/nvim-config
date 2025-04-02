@@ -42,6 +42,7 @@ vim.keymap.set("n", "<Space>dn", "<cmd>lua vim.diagnostic.goto_next()<CR>")
 vim.keymap.set("n", "<Space>dp", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
 
 vim.keymap.set('i', ';;', '<C-o>A;', { noremap = true }) -- insert ; at end of line
+vim.keymap.set('i', ',,', '<C-o>A,', { noremap = true }) -- insert , at end of line
 
 -- Highlight when yanking (copying) text
 vim.api.nvim_create_autocmd("TextYankPost", {
