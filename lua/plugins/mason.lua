@@ -1,13 +1,15 @@
 return {
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
+    version = "1.11.0", -- pin version remove later
     cmd = { "Mason" },
     config = function()
       require("mason").setup()
     end,
   },
   {
-    "williamboman/mason-lspconfig.nvim",
+    "mason-org/mason-lspconfig.nvim",
+    version = "1.32.0", -- pin version remove later
     event = { "BufReadPost", "BufNewFile" },
     dependencies = { "mason.nvim" },
     config = function()
