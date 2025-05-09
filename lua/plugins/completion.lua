@@ -1,31 +1,39 @@
 return {
   {
-    'saghen/blink.cmp',
+    "saghen/blink.cmp",
     event = { "BufReadPost" },
-    dependencies = { 'rafamadriz/friendly-snippets' },
+    dependencies = { "rafamadriz/friendly-snippets" },
 
-    version = '*',
+    version = "1.*",
 
     opts = {
       keymap = {
-        preset = 'default',
+        preset = "super-tab",
         ["<C-n>"] = { "select_next", "snippet_forward", "fallback" },
         ["<C-p>"] = { "select_prev", "snippet_backward", "fallback" },
       },
-      cmdline = { enabled = false },
+
+      appearance = {
+        nerd_font_variant = "mono"
+      },
+
       signature = { enabled = true },
+
       completion = {
         documentation = {
           auto_show = true,
           auto_show_delay_ms = 250,
         },
       },
-      appearance = {
-        nerd_font_variant = 'mono'
+
+      sources = {
+        default = { "lsp", "path", "snippets", "buffer" },
       },
+
       fuzzy = {
         implementation = "prefer_rust_with_warning"
       },
     },
+    opts_extend = { "sources.default" }
   }
 }
