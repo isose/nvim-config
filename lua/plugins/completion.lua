@@ -1,6 +1,7 @@
 return {
   {
     "saghen/blink.cmp",
+    cond = not vim.g.vscode,
     event = { "BufReadPost" },
     dependencies = { "rafamadriz/friendly-snippets" },
 
